@@ -27,6 +27,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Related resources
 
- - Read full tutorial here: https://dhtmlx.com/blog/ [coming soon]
+ - Read full tutorial here: https://dhtmlx.com/blog/use-dhtmlx-scheduler-vue-js-framework-demo/
  - Learn about dhtmlxScheduler here: https://dhtmlx.com/docs/products/dhtmlxScheduler/
  - Learn about Vue.js here: https://vuejs.org/
