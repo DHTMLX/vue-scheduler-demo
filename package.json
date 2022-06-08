@@ -1,5 +1,6 @@
 {
   "name": "scheduler-vue",
+  "description": "DHTMLX Scheduler with Vue.js",
   "version": "0.1.0",
   "private": true,
   "scripts": {
