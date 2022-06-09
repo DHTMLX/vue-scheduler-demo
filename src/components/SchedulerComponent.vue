@@ -4,35 +4,27 @@
 </template>
 
 <script>
-import "dhtmlx-scheduler";
-
-/*global scheduler*/
+import { scheduler } from "dhtmlx-scheduler";
 
 export default {
   props: {
     events: {
       type: Array,
       default() {
-        return []
+        return [];
       },
     },
   },
-  methods: {
-    $_initSchedulerEvents: function () {
-      if (!scheduler.$_eventsInitialized) {
-        scheduler.attachEvent("onEventAdded", (id, ev) => {
-          this.$emit("event-updated", id, "inserted", ev);
+  methods: {    
+    $_initDataProcessor: function() {
+      if (!scheduler.$_dataProcessorInitialized) {
+        scheduler.createDataProcessor((entity, action, data, id) => { 
+          this.$emit(`${entity}-updated`, id, action, data);
         });
-        scheduler.attachEvent("onEventChanged", (id, ev) => {
-          this.$emit("event-updated", id, "updated", ev);
-        });
-        scheduler.attachEvent("onEventDeleted", (id) => {
-          this.$emit("event-updated", id, "deleted");
-        });
-
-        scheduler.$_eventsInitialized = true;
+        scheduler.$_dataProcessorInitialized = true;
       }
     },
+  
   },
   mounted: function () {
     scheduler.skin = "material";
@@ -45,8 +37,8 @@ export default {
       "today",
       "next",
     ];
-    this.$_initSchedulerEvents();
-    
+    this.$_initDataProcessor();
+
     scheduler.init(
       this.$refs.SchedulerComponent,
       new Date(2020, 0, 20),
