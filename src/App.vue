@@ -8,95 +8,84 @@
     </div>
   </div>
 </template>
-
+ 
 <script>
-import SchedulerComponent from './components/SchedulerComponent.vue'
-
+import SchedulerComponent from './components/SchedulerComponent.vue';
+ 
 export default {
   name: "app",
   components: { SchedulerComponent },
-  data() {
+  data () {
     return {
       events: [
-        {
-          id: 1,
-          start_date: "2020-01-20 6:00",
-          end_date: "2020-01-20 15:00",
-          text: "Event 1",
-        },
-        {
-          id: 2,
-          start_date: "2020-01-23 6:00",
-          end_date: "2020-01-23 20:00",
-          text: "Event 2",
-        },
+        { id:1, start_date:"2024-01-17 6:00", end_date:"2024-01-17 15:00", text:"Event 1"},
+        { id:2, start_date:"2024-01-20 6:00", end_date:"2024-01-20 20:00", text:"Event 2"}
       ],
-      messages: [],
-    };
+      messages: []
+    }
   },
   methods: {
-    addMessage(message) {
+    addMessage (message) {
       this.messages.unshift(message);
       if (this.messages.length > 40) {
         this.messages.pop();
       }
     },
-
-    logEventUpdate(id, mode, ev) {
-      let text = ev && ev.text ? ` (${ev.text})` : "";
+ 
+    logEventUpdate (id, mode, ev) {
+      let text = (ev && ev.text ? ` (${ev.text})`: '');
       let message = `Event ${mode}: ${id} ${text}`;
       this.addMessage(message);
     },
-  },
-};
+  }
+}
 </script>
-
+ 
 <style>
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  height: 100%;
-  width: 100%;
-}
-
-.left-container {
-  overflow: hidden;
-  position: relative;
-  height: 99vh;
-  display: inline-block;
-  width: 80%;
-}
-
-.right-container {
-  border-right: 1px solid #cecece;
-  float: right;
-  height: 100%;
-  width: 19%;
-  box-shadow: 0 0 5px 2px #aaa;
-  position: relative;
-  z-index: 2;
-}
-
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+ 
+  .container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
+ 
+  .left-container {
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+    width: 80vw;
+  }
+ 
+  .right-container {
+    border-right: 1px solid #cecece;
+    float: right;
+    height: 100%;
+    width: 340px;
+    box-shadow: 0 0 5px 2px #aaa;
+    position: relative;
+    z-index:2;
+  }
+ 
 .scheduler-messages {
-  list-style-type: none;
-  height: 50%;
-  margin: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding-left: 5px;
-}
-
-.scheduler-messages > .scheduler-message {
-  background-color: #f4f4f4;
-  box-shadow: inset 5px 0 #d69000;
-  font-family: Geneva, Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  margin: 5px 0;
-  padding: 8px 0 8px 10px;
-}
+    list-style-type: none;
+    height: 50%;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-left: 5px;
+  }
+ 
+  .scheduler-messages > .scheduler-message {
+    background-color: #f4f4f4;
+    box-shadow:inset 5px 0 #d69000;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    margin: 5px 0;
+    padding: 8px 0 8px 10px;
+  }
 </style>
