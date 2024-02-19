@@ -1,4 +1,3 @@
-
 <template>
   <div ref="SchedulerComponent"></div>
 </template>
@@ -41,14 +40,14 @@ export default {
 
     scheduler.init(
       this.$refs.SchedulerComponent,
-      new Date(2020, 0, 20),
+      new Date(2024, 0, 20),
       "week"
     );
     scheduler.parse(this.$props.events);
   },
 };
 </script>
-
+ 
 <style>
-@import "~dhtmlx-scheduler/codebase/dhtmlxscheduler_material.css";
+@import "~dhtmlx-scheduler/codebase/dhtmlxscheduler.css";
 </style>
