@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { scheduler } from "dhtmlx-scheduler";
+import { Scheduler } from "@dhx/trial-scheduler";
 
 export default {
   props: {
@@ -14,18 +14,10 @@ export default {
       },
     },
   },
-  methods: {    
-    $_initDataProcessor: function() {
-      if (!scheduler.$_dataProcessorInitialized) {
-        scheduler.createDataProcessor((entity, action, data, id) => { 
-          this.$emit(`${entity}-updated`, id, action, data);
-        });
-        scheduler.$_dataProcessorInitialized = true;
-      }
-    },
   
-  },
-  mounted: function () {
+  mounted() {
+    let scheduler = Scheduler.getSchedulerInstance();
+    this.scheduler = scheduler;
     scheduler.skin = "material";
     scheduler.config.header = [
       "day",
@@ -36,7 +28,6 @@ export default {
       "today",
       "next",
     ];
-    this.$_initDataProcessor();
 
     scheduler.init(
       this.$refs.SchedulerComponent,
@@ -44,10 +35,17 @@ export default {
       "week"
     );
     scheduler.parse(this.$props.events);
+
+    scheduler.createDataProcessor((entity, action, data, id) => { 
+      this.$emit(`${entity}-updated`, id, action, data);
+    });
+  },
+  unmounted() {
+    this.scheduler.destructor();
   },
 };
 </script>
  
 <style>
-@import "~dhtmlx-scheduler/codebase/dhtmlxscheduler.css";
+  @import "@dhx/trial-scheduler/codebase/dhtmlxscheduler.css";
 </style>
