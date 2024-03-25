@@ -1,51 +1,32 @@
-<p align="center">
-<a href="https://dhtmlx.com/blog/use-dhtmlx-scheduler-vue-js-framework-demo/">
-        <img src="https://dhtmlx.github.io/vue-pivot-demo/logo.svg" width="150" height="55">
-</a>
-</p>
+# DHTMLX Scheduler with Vue Demo
 
-# Event Scheduler for Vue.js
+[![dhtmlx.com](https://img.shields.io/badge/made%20by-DHTMLX-blue)](https://dhtmlx.com/)
 
-Here you can find the demo of an Appointment calendar component for Vue.js framework. The demo is implemented with the help of JavaScript Scheduler library - [dhtmlxScheduler](https://github.com/DHTMLX/scheduler).
+![DHTMLX Scheduler with Vue Demo](https://raw.githubusercontent.com/DHTMLX/vue-scheduler-demo/master/scheduler.png)
 
-## Project setup
+## How to start
 
 ```
-yarn install
+yarn 
+yarn start
 ```
 
-### Compiles and hot-reloads for development
+You can also use [GitHub Codespaces](https://docs.github.com/en/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository) to run online.
 
-```
-yarn serve
-```
+## Useful links
 
-### Compiles and minifies for production
+- **[Online demo](https://replit.com/@dhtmlx/dhtmlx-scheduler-with-vue)**
+- [Full tutorial](https://dhtmlx.com/blog/use-dhtmlx-scheduler-vue-js-framework-demo/)
+- [Video guide](https://youtu.be/wUoxu8smflM)
+- [Learn about DHTMLX Scheduler](https://dhtmlx.com/docs/products/dhtmlxScheduler/)
+- [More demos about the DHTMLX Scheduler functionality](https://docs.dhtmlx.com/scheduler/samples)
+- [Technical support](https://forum.dhtmlx.com/c/scheduler-all)
+- [Online  documentation](https://docs.dhtmlx.com/scheduler/)
 
-```
-yarn build
-```
+## Follow us
 
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-
-### Related resources
-
- - Read full tutorial here: https://dhtmlx.com/blog/use-dhtmlx-scheduler-vue-js-framework-demo/
- - Watch step-by-step video guide here: https://youtu.be/wUoxu8smflM
- - Learn about dhtmlxScheduler here: https://dhtmlx.com/docs/products/dhtmlxScheduler/
- - Learn about Vue.js here: https://vuejs.org/
-
-### Follow us
-
-Star our GitHub repo :star:
-
-Watch our tutorials on [YouTube](https://www.youtube.com/user/dhtmlx/videos) :eyes:
-
-Read us on [Medium](https://medium.com/@dhtmlx) :newspaper:
-
-Follow us on [Twitter](https://twitter.com/dhtmlx) :feet:
-
-Like our page on [Facebook](https://www.facebook.com/dhtmlx/) :thumbsup:
+- Star our GitHub repo :star:
+- Watch our tutorials on [YouTube](https://www.youtube.com/user/dhtmlx/videos) :eyes:
+- Read us on [Medium](https://dhtmlx.medium.com) :newspaper:
+- Follow us on [Twitter](https://twitter.com/dhtmlx) :feet:
+- Like our page on [Facebook](https://www.facebook.com/dhtmlx/) :thumbsup:

@@ -1,9 +1,10 @@
 {
-  "name": "scheduler-vue",
+  "name": "vue-scheduler-demo",
   "description": "DHTMLX Scheduler with Vue.js",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
+    "start": "vue-cli-service serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
