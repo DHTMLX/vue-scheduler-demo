@@ -2,7 +2,7 @@
   "name": "vue3-with-dhtmlx-scheduler",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build": "vite build",
     "preview": "vite preview --port 4173"
   },
