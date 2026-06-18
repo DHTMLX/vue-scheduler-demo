@@ -1,51 +1,57 @@
-<template>
-  <div ref="SchedulerComponent"></div>
-</template>
-
-<script>
+<script setup>
+import { onMounted, onUnmounted, ref } from "vue";
 import { Scheduler } from "@dhx/trial-scheduler";
 
-export default {
-  props: {
-    events: {
-      type: Array,
-      default() {
-        return [];
-      },
-    },
+const props = defineProps({
+  events: {
+    type: Array,
+    default: () => [],
   },
-  
-  mounted() {
-    let scheduler = Scheduler.getSchedulerInstance();
-    this.scheduler = scheduler;
-    scheduler.skin = "material";
-    scheduler.config.header = [
-      "day",
-      "week",
-      "month",
-      "date",
-      "prev",
-      "today",
-      "next",
-    ];
+});
 
-    scheduler.init(
-      this.$refs.SchedulerComponent,
-      new Date(2024, 0, 20),
-      "week"
-    );
-    scheduler.parse(this.$props.events);
+const emit = defineEmits(["event-updated"]);
 
-    scheduler.createDataProcessor((entity, action, data, id) => { 
-      this.$emit(`${entity}-updated`, id, action, data);
-    });
-  },
-  unmounted() {
-    this.scheduler.destructor();
-  },
-};
+const schedulerContainer = ref(null);
+const schedulerInstance = ref(null);
+
+onMounted(() => {
+  const scheduler = Scheduler.getSchedulerInstance();
+  schedulerInstance.value = scheduler;
+
+  scheduler.config.header = [
+    "day",
+    "week",
+    "month",
+    "date",
+    "prev",
+    "today",
+    "next",
+  ];
+
+  scheduler.init(schedulerContainer.value, new Date(2027, 5, 10), "week");
+  scheduler.parse(props.events);
+
+  scheduler.createDataProcessor((entity, action, data, id) => {
+    if (entity === "event") {
+      emit("event-updated", id, action, data);
+    }
+  });
+});
+
+onUnmounted(() => {
+  schedulerInstance.value?.destructor();
+  schedulerInstance.value = null;
+
+  if (schedulerContainer.value) {
+    schedulerContainer.value.innerHTML = "";
+  }
+});
 </script>
- 
+
+<template>
+  <div ref="schedulerContainer"></div>
+</template>
+
 <style>
   @import "@dhx/trial-scheduler/codebase/dhtmlxscheduler.css";
 </style>
